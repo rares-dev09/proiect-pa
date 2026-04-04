@@ -1,8 +1,4 @@
 #include "test.h"
-double round3(double x)
-{
-    return round(x * 1000.0) / 1000.0;
-}
 void addAtBeggining(Node **head, double value)
 {
     Node *node = (Node *)malloc(sizeof(Node));
@@ -28,7 +24,6 @@ void newNode(Node **head, double value)
         return;
     }
     Node *aux = *head;
-    ;
     Node *node = (Node *)malloc(sizeof(Node));
     node->valoare = value;
     node->randament = 0;

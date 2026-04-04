@@ -8,7 +8,6 @@ struct Node
     struct Node *next;
 };
 typedef struct Node Node;
-double round3(double x);
 void addAtBeggining(Node **head, double value);
 void free_function(Node **head);
 void newNode(Node **head, double value);

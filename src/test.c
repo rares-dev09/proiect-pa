@@ -33,10 +33,10 @@ int main(int argc, const char *argv[])
     volatilitate_f(&head, n - 1, &volatilitate, randament_m);
     shape_ratio = (randament_m - randament_fara_risc) / volatilitate;
     FILE *g;
-    randament_m = round3(randament_m);
-    volatilitate = round3(volatilitate);
-    shape_ratio = round3(shape_ratio);
     g = fopen(argv[2], "w");
+    randament_m = (int)(randament_m * 1000) / 1000.0;
+    volatilitate = (int)(volatilitate * 1000) / 1000.0;
+    shape_ratio = (int)(shape_ratio * 1000) / 1000.0;
     if (g)
     {
         fprintf(g, "%.3lf\n", randament_m);
