@@ -14,8 +14,6 @@ int main(int argc, const char *argv[])
         fclose(f);
         return 0;
     }
-    if (fscanf(f, "%d", &n) != 1)
-        return 0;
     Node *head = NULL;
     for (int i = 0; i < n; i++)
     {
