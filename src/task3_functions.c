@@ -227,7 +227,38 @@ void print_paths(TreeNode **root, FILE *f)
         aux = aux->next;
     }
 }
-
+void free_tree(TreeNode *node, int is_root)
+{
+    if (node == NULL)
+        return;
+    free_tree(node->left, 0);
+    free_tree(node->right, 0);
+    if (node->stocks != NULL)
+    {
+        StockList *cur = node->stocks;
+        StockList *last = cur;
+        while (last->next != node->stocks)
+            last = last->next;
+        last->next = NULL;
+        while (cur != NULL)
+        {
+            StockList *next = cur->next;
+            if (is_root)
+            {
+                stock *s = cur->stock;
+                while (s != NULL)
+                {
+                    stock *sn = s->next;
+                    free(s);
+                    s = sn;
+                }
+            }
+            free(cur);
+            cur = next;
+        }
+    }
+    free(node);
+}
 void task3_main(const char *argv[])
 {
     TreeNode *root = NULL;
@@ -236,4 +267,5 @@ void task3_main(const char *argv[])
     FILE *f = fopen(argv[2], "w");
     print_paths(&root, f);
     fclose(f);
+    free_tree(root, 1);
 }

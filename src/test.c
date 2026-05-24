@@ -3,21 +3,17 @@ int main(int argc, const char *argv[])
 {
     if (argc < 3)
         return 0;
-    FILE *f = fopen(argv[1], "r");
-    if (!f)
-        return 1;
-    char buff[3];
-    fgets(buff, 3, f);
-    fclose(f);
-    if (isdigit(buff[0]))
+
+    int n = atoi(strstr(argv[1], "data") + 4);
+
+    if (n <= 5)
         task1_main(argv);
-    else if (('A' <= buff[0] && buff[0] <= 'Z') && ('a' <= buff[1] && buff[1] <= 'z'))
-    {
+    else if (n <= 10)
         task2_main(argv);
-    }
-    else if (('A' <= buff[0] && buff[0] <= 'Z') && ('A' <= buff[1] && buff[1] <= 'Z'))
-    {
+    else if (n <= 15)
         task3_main(argv);
-    }
+    else
+        task4_main(argv);
+
     return 0;
 }
