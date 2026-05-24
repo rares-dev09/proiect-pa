@@ -36,22 +36,22 @@ int cmmdc(int a, int b)
         return cmmdc(b, a % b);
 }
 
-void inmultire(int a, int b, int c, int d, int *rez_num, int *rez_den)
+void inmultire(int a, int b, int c, int d, int *numarator, int *numitor)
 {
-    *rez_num = a * c;
-    *rez_den = b * d;
-    int g = cmmdc(*rez_num, *rez_den);
-    *rez_num /= g;
-    *rez_den /= g;
+    *numarator = a * c;
+    *numitor = b * d;
+    int g = cmmdc(*numarator, *numitor);
+    *numarator /= g;
+    *numitor /= g;
 }
 
-void adunare(int a, int b, int c, int d, int *rez_num, int *rez_den)
+void adunare(int a, int b, int c, int d, int *numarator, int *numitor)
 {
-    *rez_num = a * d + c * b;
-    *rez_den = b * d;
-    int g = cmmdc(*rez_num, *rez_den);
-    *rez_num /= g;
-    *rez_den /= g;
+    *numarator = a * d + c * b;
+    *numitor = b * d;
+    int g = cmmdc(*numarator, *numitor);
+    *numarator /= g;
+    *numitor /= g;
 }
 
 void creare_adj(int n, int adj[n][n], int pret_plecare[], const float pret[], int stari[], int nr_stari, float d)
